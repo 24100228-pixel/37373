@@ -1,0 +1,154 @@
+/* Thiết lập chung */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* --- Extra 2: Sticky Navbar --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: #333;
+    color: white;
+    z-index: 1000;
+}
+
+.sticky {
+    position: sticky;
+    top: 0;
+    width: 100%;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+}
+
+/* --- Extra 1: Hover Effect --- */
+.nav-links a:hover,
+.main-btn:hover {
+    background-color: #555;
+    border-radius: 4px;
+}
+
+/* Nút chính */
+.main-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-top: 15px;
+}
+.main-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Phần Hero */
+.hero {
+    background-color: #e0f7fa;
+    color: #007bff;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+/* Feature Grid */
+.feature-grid {
+    padding: 50px 5%;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* Cho phép xuống dòng trên màn hình nhỏ */
+    justify-content: space-around;
+}
+
+.feature-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1 1 200px; /* Cơ bản Responsive với flex-basis 200px */
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}
+
+/* --- Mobile Nav (Extra 3: Setup) --- */
+.hamburger {
+    display: none; /* Ẩn trên desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px 0;
+    background-color: white;
+    transition: 0.4s;
+}
+
+/* -------------------------------------
+ * Responsive (Media Queries)
+ * Đảm bảo tính Responsive cho Mobile
+ * ------------------------------------- */
+@media (max-width: 768px) {
+    /* Ẩn link điều hướng và hiện hamburger */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px; /* Ngay dưới navbar */
+        left: 0;
+        background-color: #333;
+        padding: 10px 0;
+    }
+
+    .nav-links a {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .hamburger {
+        display: block; /* Hiện hamburger */
+    }
+
+    /* Hiển thị menu khi class 'active' được thêm bằng JS */
+    .nav-links.active {
+        display: flex;
+    }
+
+    /* Đảm bảo các feature xếp chồng lên nhau trên mobile */
+    .feature-grid {
+        flex-direction: column;
+    }
+}
